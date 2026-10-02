@@ -5,6 +5,7 @@ const AndroidControls = registerPlugin('AndroidControls');
 const isNative = Capacitor.isNativePlatform();
 
 const stopwatch = createStopwatch();
+const clock = document.querySelector('#clock');
 const display = document.querySelector('#display');
 const startButton = document.querySelector('#start');
 const pauseButton = document.querySelector('#pause');
@@ -16,6 +17,17 @@ const lockedStatus = document.querySelector('#locked-status');
 let locked = false;
 let lastTapAt = 0;
 let wakeLock = null;
+const clockFormatter = new Intl.DateTimeFormat('it-IT', {
+  hour: '2-digit',
+  minute: '2-digit',
+  hourCycle: 'h23',
+});
+
+function refreshClock() {
+  const now = new Date();
+  clock.dateTime = now.toISOString();
+  clock.textContent = clockFormatter.format(now);
+}
 
 function refreshDisplay() {
   display.textContent = formatDuration(stopwatch.getElapsedMs());
@@ -102,5 +114,7 @@ setInterval(() => {
   }
 }, 50);
 
+setInterval(refreshClock, 1000);
+refreshClock();
 refreshDisplay();
 setKeepScreenOn(keepAwakeInput.checked);

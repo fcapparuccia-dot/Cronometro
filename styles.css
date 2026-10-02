@@ -40,7 +40,14 @@ body {
   width: min(100%, 34rem);
   display: grid;
   justify-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
+}
+
+.clock {
+  color: #777;
+  font-size: 1.15rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .display {
@@ -163,7 +170,12 @@ button.stop {
 }
 
 .locked .display {
-  color: #555;
+  color: #fff;
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.16);
+}
+
+.locked .clock {
+  color: #444;
 }
 
 .locked .lock-hint {
