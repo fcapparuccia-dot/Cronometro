@@ -1,4 +1,4 @@
-# Cronometro
+# ChronoScreenOn
 
 Cronometro essenziale per Android, realizzato con Capacitor.
 
@@ -19,7 +19,7 @@ Apri http://localhost:5173 nel browser. Il blocco schermo Android e la modalita 
 
 ## APK Android
 
-Il workflow GitHub Actions compila l'APK debug a ogni push e lo rende disponibile come artifact `cronometro-apk`. Per scaricarlo, apri la run completata nella scheda Actions del repository e scarica l'artifact; estrai `app-debug.apk` e aprilo sul telefono. Android potrebbe chiedere di autorizzare l'installazione da questa origine. Per generarlo localmente:
+Il workflow GitHub Actions compila l'APK debug a ogni push e lo rende disponibile come artifact `chronoscreenon-apk`. Per scaricarlo, apri la run completata nella scheda Actions del repository e scarica l'artifact; estrai `app-debug.apk` e aprilo sul telefono. Android potrebbe chiedere di autorizzare l'installazione da questa origine. Per generarlo localmente:
 
 ```sh
 npm ci
