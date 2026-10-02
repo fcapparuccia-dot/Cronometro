@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#000000" />
+    <title>Cronometro</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="timer" aria-label="Cronometro">
+        <h1 id="display" class="display" aria-live="off">00:00:00</h1>
+        <div class="controls" aria-label="Comandi cronometro">
+          <button id="start" class="start" type="button">Avvia</button>
+          <button id="pause" class="stop" type="button">Ferma</button>
+          <button id="reset" class="reset" type="button">Azzera</button>
+        </div>
+        <label class="setting" for="keep-awake">
+          <span class="setting-label">Schermo sempre acceso</span>
+          <input id="keep-awake" type="checkbox" checked />
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+        <p id="lock-hint" class="lock-hint" aria-live="polite">Doppio tocco per oscurare i comandi</p>
+        <div id="locked-status" class="locked-status" aria-hidden="true">Doppio tocco per riattivare</div>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

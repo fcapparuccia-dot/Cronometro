@@ -1,0 +1,172 @@
+:root {
+  color-scheme: dark;
+  --bg: #000;
+  --text: #fff;
+  --muted: #777;
+  --line: #292929;
+  --start: #b7f34a;
+  --stop: #ff705d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Arial", sans-serif;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.app-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.25rem;
+}
+
+.timer {
+  width: min(100%, 34rem);
+  display: grid;
+  justify-items: center;
+  gap: 2.5rem;
+}
+
+.display {
+  margin: 0;
+  width: 100%;
+  font-size: clamp(3rem, 13vw, 6rem);
+  line-height: 1;
+  letter-spacing: 0;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-weight: 300;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  gap: 0.75rem;
+}
+
+button {
+  min-height: 3.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: #111;
+  color: var(--text);
+  padding: 0.75rem 0.5rem;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+button.start {
+  background: var(--start);
+  border-color: transparent;
+  color: #101500;
+  font-weight: 700;
+}
+
+button.stop {
+  background: var(--stop);
+  border-color: transparent;
+  color: #260600;
+  font-weight: 700;
+}
+
+.setting {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 3.5rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: #dedede;
+  cursor: pointer;
+}
+
+.setting input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.switch {
+  width: 3rem;
+  height: 1.75rem;
+  border: 1px solid #606060;
+  border-radius: 1rem;
+  background: #272727;
+  transition: background 150ms ease;
+}
+
+.switch::after {
+  content: "";
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0.2rem;
+  border-radius: 50%;
+  background: #aaa;
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+.setting input:checked + .switch {
+  background: #334912;
+}
+
+.setting input:checked + .switch::after {
+  transform: translateX(1.25rem);
+  background: var(--start);
+}
+
+.setting input:focus-visible + .switch {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.lock-hint,
+.locked-status {
+  min-height: 1.25rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.locked-status {
+  display: none;
+}
+
+.locked .controls,
+.locked .setting {
+  visibility: hidden;
+}
+
+.locked .display {
+  color: #555;
+}
+
+.locked .lock-hint {
+  display: none;
+}
+
+.locked .locked-status {
+  display: block;
+  color: #333;
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Cronometro</string>
+    <string name="title_activity_main">Cronometro</string>
+    <string name="package_name">com.cronometro.app</string>
+    <string name="custom_url_scheme">com.cronometro.app</string>
+</resources>
