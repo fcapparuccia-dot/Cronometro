@@ -5,8 +5,9 @@ Cronometro essenziale per Android, realizzato con Capacitor.
 ## Features
 
 - Avvio, arresto e azzeramento
+- Modalità 1° e 2° tempo con durata modificabile e doppia vibrazione alla scadenza, senza arresto automatico
 - Opzione per mantenere acceso lo schermo
-- Doppio tocco per oscurare i comandi e attivare la modalita immersiva; un altro doppio tocco li ripristina
+- Doppio tocco per oscurare i comandi e attivare la modalità immersiva; l'indicatore del tempo resta visibile e un altro doppio tocco ripristina i comandi
 - Schermata nera con testo bianco
 
 ## Run locally

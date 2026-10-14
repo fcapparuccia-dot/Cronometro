@@ -30,8 +30,8 @@ export function createStopwatch(initialElapsedMs = 0, nowFn = Date.now) {
     startedAtMs = 0;
   }
 
-  function reset() {
-    elapsedMs = 0;
+  function reset(initialElapsedMs = 0) {
+    elapsedMs = initialElapsedMs;
     running = false;
     startedAtMs = 0;
   }
@@ -47,6 +47,22 @@ export function createStopwatch(initialElapsedMs = 0, nowFn = Date.now) {
     getElapsedMs,
     recordLap,
     isRunning: () => running,
+  };
+}
+
+export function createElapsedAlert(targetElapsedMs, onAlert) {
+  let triggered = false;
+
+  return {
+    check(elapsedMs) {
+      if (triggered || elapsedMs < targetElapsedMs) {
+        return false;
+      }
+
+      triggered = true;
+      onAlert();
+      return true;
+    },
   };
 }
 

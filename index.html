@@ -12,10 +12,27 @@
       <section class="timer" aria-label="Cronometro">
         <time id="clock" class="clock" aria-label="Ora attuale"></time>
         <h1 id="display" class="display" aria-live="off">00:00:00</h1>
+        <div id="period-indicator" class="period-indicator" role="status" aria-live="polite" hidden>
+          <span id="period-number" class="period-number"></span>
+          <span id="period-name"></span>
+        </div>
         <div class="controls" aria-label="Comandi cronometro">
           <button id="start" class="start" type="button">Avvia</button>
           <button id="pause" class="stop" type="button">Ferma</button>
           <button id="reset" class="reset" type="button">Azzera</button>
+        </div>
+        <div class="period-settings" aria-label="Tempi di gioco">
+          <label class="duration-setting" for="period-duration">
+            Durata di un tempo
+            <span class="duration-input">
+              <input id="period-duration" type="number" min="1" step="1" value="35" required />
+              <span>minuti</span>
+            </span>
+          </label>
+          <div class="period-controls">
+            <button id="first-period" type="button">1° Tempo</button>
+            <button id="second-period" type="button">2° Tempo</button>
+          </div>
         </div>
         <label class="setting" for="keep-awake">
           <span class="setting-label">Schermo sempre acceso</span>

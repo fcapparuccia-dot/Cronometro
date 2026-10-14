@@ -1,6 +1,8 @@
 package com.cronometro.app;
 
 import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowInsets;
@@ -14,6 +16,23 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 
 @CapacitorPlugin(name = "AndroidControls")
 public class AndroidControlsPlugin extends Plugin {
+    @PluginMethod
+    public void vibrate(PluginCall call) {
+        Vibrator vibrator = (Vibrator) getContext().getSystemService(android.content.Context.VIBRATOR_SERVICE);
+        if (vibrator == null || !vibrator.hasVibrator()) {
+            call.reject("Il dispositivo non supporta la vibrazione.");
+            return;
+        }
+
+        long[] pattern = {0, 100, 100, 100};
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            vibrator.vibrate(VibrationEffect.createWaveform(pattern, -1));
+        } else {
+            vibrator.vibrate(pattern, -1);
+        }
+        call.resolve();
+    }
+
     @PluginMethod
     public void setKeepScreenOn(PluginCall call) {
         boolean enabled = Boolean.TRUE.equals(call.getBoolean("enabled"));
